@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Aulas de Algoritmos</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <h1>Feedback das Aulas de Algoritmos e Lógica de Programação</h1>
+    </header>
+    <main>
+        <section class="introducao">
+            <h2>Olá, Aluno(a)!</h2>
+            <p>Sua opinião é muito importante para aprimorarmos as aulas. Por favor, dedique alguns minutos para preencher este formulário de feedback. Suas respostas são anônimas.</p>
+            <p>Avalie cada item em uma escala de 0 (representando o mínimo de satisfação ou concordância) a 10 (representando o máximo de satisfação ou concordância), a menos que especificado de outra forma.</p>
+        </section>
+
+        <section class="formulario-feedback">
+            <form name="feedback-algoritmos" method="POST" data-netlify="true" action="feedback/obrigado.html" netlify>
+                <input type="hidden" name="form-name" value="feedback-algoritmos" />
+                <!-- Campo Honeypot opcional para proteção anti-spam -->
+                <p class="hidden" style="display:none;">
+                    <label>Não preencha isto se você for humano: <input name="bot-field" /></label>
+                </p>
+
+                <fieldset>
+                    <legend>Avaliação Geral</legend>
+                    <div class="form-group">
+                        <label for="satisfacao-geral">1. Satisfação Geral com as aulas:</label>
+                        <p class="descricao-pergunta">De modo geral, o quanto você está satisfeito(a) com as aulas até agora?</p>
+                        <input type="number" id="satisfacao-geral" name="satisfacao_geral" min="0" max="10" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Perguntas Específicas</legend>
+
+                    <div class="form-group">
+                        <label for="clareza-conteudo">2. Clareza do conteúdo apresentado:</label>
+                        <p class="descricao-pergunta">Os temas foram apresentados de forma compreensível e fácil de seguir?</p>
+                        <input type="number" id="clareza-conteudo" name="clareza_conteudo" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="didatica-professor">3. Didática do professor:</label>
+                        <p class="descricao-pergunta">As estratégias de ensino e a forma de explicar do professor facilitaram seu aprendizado?</p>
+                        <input type="number" id="didatica-professor" name="didatica_professor" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="relevancia-exemplos">4. Relevância dos exemplos práticos:</label>
+                        <p class="descricao-pergunta">Os exemplos práticos ajudaram a conectar a teoria com situações reais ou problemas de programação?</p>
+                        <input type="number" id="relevancia-exemplos" name="relevancia_exemplos" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="materiais-apoio">5. Qualidade dos materiais de apoio:</label>
+                        <p class="descricao-pergunta">Os slides, códigos de exemplo, artigos e outros recursos foram úteis e de boa qualidade?</p>
+                        <input type="number" id="materiais-apoio" name="materiais_apoio" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ritmo-aulas">6. Ritmo das aulas (0=muito lento, 5=ideal, 10=muito rápido):</label>
+                        <p class="descricao-pergunta">A velocidade com que o conteúdo foi apresentado foi adequada para seu aprendizado?</p>
+                        <input type="number" id="ritmo-aulas" name="ritmo_aulas" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profundidade-temas">7. Profundidade dos temas abordados:</label>
+                        <p class="descricao-pergunta">Você sentiu que os tópicos foram explorados com o nível de detalhe necessário?</p>
+                        <input type="number" id="profundidade-temas" name="profundidade_temas" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interacao-duvidas">8. Interação e esclarecimento de dúvidas:</label>
+                        <p class="descricao-pergunta">Houve espaço para perguntas? Suas dúvidas foram respondidas de forma clara?</p>
+                        <input type="number" id="interacao-duvidas" name="interacao_duvidas" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="utilidade-exercicios">9. Utilidade dos exercícios propostos:</label>
+                        <p class="descricao-pergunta">Os exercícios práticos contribuíram para você aplicar e consolidar o que aprendeu?</p>
+                        <input type="number" id="utilidade-exercicios" name="utilidade_exercicios" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ambiente-aprendizagem">10. Ambiente geral de aprendizagem:</label>
+                        <p class="descricao-pergunta">O ambiente (seja físico ou virtual) foi propício para a concentração e o aprendizado?</p>
+                        <input type="number" id="ambiente-aprendizagem" name="ambiente_aprendizagem" min="0" max="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios-adicionais">11. Comentários adicionais, sugestões ou elogios (opcional):</label>
+                        <p class="descricao-pergunta">Use este espaço para qualquer feedback adicional, seja um ponto forte que queira destacar ou uma sugestão de melhoria.</p>
+                        <textarea id="comentarios-adicionais" name="comentarios_adicionais" rows="5"></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-submit">Enviar Feedback</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Prof. M.Sc. Marcos Roberto de Moraes [Maromo] / Fatec</p>
+    </footer>
+</body>
+</html>

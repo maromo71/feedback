@@ -1,0 +1,154 @@
+/* Reset básico e fontes */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container { /* Não usado no HTML fornecido, mas pode ser útil se você expandir */
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: #e8491d 3px solid;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px; /* Limita a largura do conteúdo principal */
+    margin: 20px auto; /* Centraliza o conteúdo */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.introducao, .mensagem-sucesso {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #eef; /* Um azul claro para destaque */
+    border-left: 5px solid #35424a;
+}
+
+.introducao h2, .mensagem-sucesso h2 {
+    color: #35424a;
+}
+
+.formulario-feedback fieldset {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.formulario-feedback legend {
+    font-weight: bold;
+    color: #35424a;
+    padding: 0 10px;
+    font-size: 1.2em; /* Aumenta um pouco o tamanho da legenda */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Aumenta um pouco o espaçamento entre os grupos */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 3px; /* Reduz um pouco a margem para a descrição ficar mais próxima */
+    font-weight: bold;
+    font-size: 1.05em; /* Leve aumento no tamanho do label */
+}
+
+/* Estilo para as descrições das perguntas */
+.form-group .descricao-pergunta {
+    font-size: 0.9em;
+    color: #555; /* Cor mais suave para a descrição */
+    margin-top: 0;
+    margin-bottom: 8px; /* Espaçamento antes do campo de input */
+    font-style: italic; /* Opcional: para dar um toque diferente */
+}
+
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em; /* Garante que o texto dentro do input seja legível */
+}
+
+.form-group input[type="number"] {
+    max-width: 120px; /* Ajustado para acomodar 0-10 confortavelmente */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-submit, .btn-voltar {
+    display: inline-block;
+    background: #e8491d;
+    color: #fff;
+    padding: 12px 25px; /* Botão um pouco maior */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em; /* Texto do botão um pouco maior */
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover, .btn-voltar:hover {
+    background: #35424a;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    color: #aaa;
+    background: #35424a;
+    color: #fff;
+}
+
+/* Estilo para o campo honeypot (já no HTML, mas só para referência) */
+.hidden {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    main {
+        margin: 10px auto;
+        padding: 15px;
+    }
+    .form-group input[type="number"] {
+        max-width: 100px;
+    }
+    .btn-submit, .btn-voltar {
+        width: 100%; /* Botões ocupam largura total em telas menores */
+        text-align: center;
+        margin-bottom: 10px; /* Espaçamento se houver múltiplos botões */
+    }
+    .btn-voltar {
+        margin-top: 10px; /* Espaçamento do botão voltar para a mensagem */
+    }
+}
