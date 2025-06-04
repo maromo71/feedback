@@ -1,18 +1,18 @@
 /* Reset básico e fontes */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+html {
+    height: 100%; /* Importante para o min-height: 100vh no body funcionar corretamente em alguns cenários */
 }
 
-.container { /* Não usado no HTML fornecido, mas pode ser útil se você expandir */
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
+body {
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Empilha os filhos (header, main, footer) verticalmente */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos 100% da altura da viewport */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Remove margens padrão do body */
+    padding: 0; /* Remove paddings padrão do body */
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
@@ -21,26 +21,37 @@ header {
     padding: 20px 0;
     text-align: center;
     border-bottom: #e8491d 3px solid;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2em;
+    /* flex-shrink: 0; /* Opcional: impede que o header encolha se o conteúdo for muito grande */
 }
 
 main {
+    flex-grow: 1; /* ESSENCIAL: Faz o 'main' expandir e ocupar o espaço disponível, empurrando o footer para baixo */
     padding: 20px;
-    max-width: 800px; /* Limita a largura do conteúdo principal */
-    margin: 20px auto; /* Centraliza o conteúdo */
+    max-width: 800px;
+    width: 100%; /* Garante que o main tente ocupar a largura disponível dentro dos limites do max-width */
+    margin: 20px auto; /* Centraliza o conteúdo de 'main' horizontalmente */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Para que o padding não some à largura/altura */
 }
+
+footer {
+    background: #35424a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    /* margin-top: 20px; /* Removido ou ajustado: O flex-grow no main deve cuidar do espaçamento. */
+    /*             Se precisar de espaço acima do footer quando o conteúdo é longo, adicione padding-bottom ao main. */
+    /* flex-shrink: 0; /* Opcional: impede que o footer encolha */
+}
+
+/* ----- RESTANTE DO CSS (sem alterações diretas para o sticky footer, mas incluído para contexto) ----- */
 
 .introducao, .mensagem-sucesso {
     padding: 20px;
     margin-bottom: 20px;
-    background-color: #eef; /* Um azul claro para destaque */
+    background-color: #eef;
     border-left: 5px solid #35424a;
 }
 
@@ -59,27 +70,26 @@ main {
     font-weight: bold;
     color: #35424a;
     padding: 0 10px;
-    font-size: 1.2em; /* Aumenta um pouco o tamanho da legenda */
+    font-size: 1.2em;
 }
 
 .form-group {
-    margin-bottom: 20px; /* Aumenta um pouco o espaçamento entre os grupos */
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 3px; /* Reduz um pouco a margem para a descrição ficar mais próxima */
+    margin-bottom: 3px;
     font-weight: bold;
-    font-size: 1.05em; /* Leve aumento no tamanho do label */
+    font-size: 1.05em;
 }
 
-/* Estilo para as descrições das perguntas */
 .form-group .descricao-pergunta {
     font-size: 0.9em;
-    color: #555; /* Cor mais suave para a descrição */
+    color: #555;
     margin-top: 0;
-    margin-bottom: 8px; /* Espaçamento antes do campo de input */
-    font-style: italic; /* Opcional: para dar um toque diferente */
+    margin-bottom: 8px;
+    font-style: italic;
 }
 
 .form-group input[type="number"],
@@ -89,11 +99,11 @@ main {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 1em; /* Garante que o texto dentro do input seja legível */
+    font-size: 1em;
 }
 
 .form-group input[type="number"] {
-    max-width: 120px; /* Ajustado para acomodar 0-10 confortavelmente */
+    max-width: 120px;
 }
 
 .form-group textarea {
@@ -104,12 +114,12 @@ main {
     display: inline-block;
     background: #e8491d;
     color: #fff;
-    padding: 12px 25px; /* Botão um pouco maior */
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1.1em; /* Texto do botão um pouco maior */
+    font-size: 1.1em;
     transition: background-color 0.3s ease;
 }
 
@@ -117,16 +127,6 @@ main {
     background: #35424a;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    color: #aaa;
-    background: #35424a;
-    color: #fff;
-}
-
-/* Estilo para o campo honeypot (já no HTML, mas só para referência) */
 .hidden {
     display: none;
 }
@@ -137,18 +137,18 @@ footer {
         font-size: 1.6em;
     }
     main {
-        margin: 10px auto;
+        margin: 10px auto; /* Ajusta margem para telas menores */
         padding: 15px;
     }
     .form-group input[type="number"] {
         max-width: 100px;
     }
     .btn-submit, .btn-voltar {
-        width: 100%; /* Botões ocupam largura total em telas menores */
+        width: 100%;
         text-align: center;
-        margin-bottom: 10px; /* Espaçamento se houver múltiplos botões */
+        margin-bottom: 10px;
     }
     .btn-voltar {
-        margin-top: 10px; /* Espaçamento do botão voltar para a mensagem */
+        margin-top: 10px;
     }
 }
